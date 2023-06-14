@@ -16,3 +16,20 @@ wikirace(): This function implements the core logic of the wikirace. It starts w
 
 Execution: The script calls wikirace() with 'Python (programming language)' and 'Elvis Presley' as example arguments and prints the path from the start page to the target page.
 
+
+Overall_thoughts
+
+This program will identify the optimal path between two pages. However the wikirace as a game depends on speed, similar to the micromouse game where small robotic mice compete to solve a 16×16 maze.
+
+This implementation takes a "flood fill" approach, similar to micromouse, where the mice will solve the maze by assigning values to each of the cells in a maze where these values represent the distance from any cell on a maze to the destination cell. i.e. the shortest path wins. 
+
+The wiki pages can be thought of as a maze, some links lead to dead ends, but by assigning a value to these links we can follow the path of lease resistance. 
+
+
+IMPROVEMENTS
+
+Here is a great princton presentation trying to slove the Kevin Bacon problem using graph methods. 
+
+https://www.cs.princeton.edu/courses/archive/fall13/cos226/lectures/41UndirectedGraphs.pdf
+
+There are some interesting approaches listed there with the cavet that there is no graph avaliable unless we build one. 

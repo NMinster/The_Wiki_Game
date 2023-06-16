@@ -76,11 +76,12 @@ def wikirace(start, target):
 
     topics = extract_topics(common_links)  # You'll need to implement this.
 
-    queue = deque([[start]])
-    visited = {start}
+    queue = []
+    # The queue now contains entries arranged by score (priority), path, visited set
+    heapq.heappush(queue, (-1, [start], {start}))  # Note that heapq is a min-heap, so we negate the score
 
     while queue:
-        path = queue.popleft()
+        score, path, visited = heapq.heappop(queue)
         page = path[-1]
 
         if page == target:
@@ -90,11 +91,14 @@ def wikirace(start, target):
         scored_links = [(get_score(link, topics), link) for link in links]
         sorted_links = sorted(scored_links, key=lambda x: x[0], reverse=True)  # Prioritize links with higher scores
 
-        for _, link in sorted_links:
+        for link_score, link in sorted_links:
             if link not in visited:
-                queue.append(path + [link])
-                visited.add(link)
+                # Add to the priority queue with cumulative score
+                new_visited = visited.copy()
+                new_visited.add(link)
+                heapq.heappush(queue, (score - link_score, path + [link], new_visited))  # Negate score for min-heap
 
     return None
+
 
 print(wikirace('Python (programming language)', 'Elvis Presley'))

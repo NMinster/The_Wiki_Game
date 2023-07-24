@@ -1,5 +1,9 @@
 The_Wiki_Game
 
+7-24: Added bi-directional search
+
+
+
 This Python program implements a version of the Wikipedia Game aka a "wikirace". In a wikirace, the goal is to navigate from one Wikipedia page to another, exclusively using the links on each page. This script aims to find a path from a starting Wikipedia page to a target Wikipedia page. 
 
 E.g. Start on the wiki page for Ford Motor Company, your goal is to reach Lady Gaga. Using only internal links a solution is the following, Ford Motor Company-> Ford Field -> Madonna -> Lady Gaga.
